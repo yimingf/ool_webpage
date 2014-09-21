@@ -1,1 +1,19 @@
 <h1>{{ label }}</h1>
+<form action="/interference/query/" method="get">
+	<div class="select_format">
+        <td>Object class</td>
+        <td><label for="class"></label>
+            <select name="class" size="1" id="class">
+      	        <option value="0">(Choose one)</option>
+			</select>
+		</td>
+    </div>
+	<div>
+		Position: x<input type="text" name="position.x">
+		y<input type="text" name="position.y">
+	</div>
+	<div>
+		Wavelength:<input type="text" name="wavelength">
+	</div>
+  	<input type="submit" value="Submit">
+</form>

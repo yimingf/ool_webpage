@@ -1,1 +1,12 @@
 <h1>{{ label }}</h1>
+<form action="/lens/query/" method="get">
+	<div class="select_format">
+        <td>Light position</td>
+        <td><input type="text" name="position.x">		</td>
+    </div>
+	<div>
+		<td>Lens position:<input type="text" name="position"></td>
+		<td>Focal length:<input type="text" name="focal"></td>
+	</div>
+  	<input type="submit" value="Submit">
+</form>
