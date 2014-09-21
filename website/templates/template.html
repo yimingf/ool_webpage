@@ -1,0 +1,7 @@
+<h1>{{ label }}</h1>
+<p>Which do you want?</p>
+<form action="" method="post">
+{% csrf_token %}
+<input type="submit" name="intf" value="interference">
+<input type="submit" name="lens" value="lens">
+</form>
