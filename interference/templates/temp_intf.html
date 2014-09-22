@@ -1,19 +1,23 @@
 <h1>{{ label }}</h1>
-<form action="/interference/query/" method="get">
+<form action="/interference/query/" method="POST">
+	{% csrf_token %}
 	<div class="select_format">
-        <td>Object class</td>
-        <td><label for="class"></label>
-            <select name="class" size="1" id="class">
-      	        <option value="0">(Choose one)</option>
-			</select>
-		</td>
+        <td>Optical screenposition</td>
+        <td><input type="text" name="position.screen">		</td>
     </div>
 	<div>
-		Position: x<input type="text" name="position.x">
-		y<input type="text" name="position.y">
+		<td>Light 1 position:</td>
+		<td><input type="text" name="position.x1"></td>
+		<td><input type="text" name="position.y1"></td>
 	</div>
 	<div>
-		Wavelength:<input type="text" name="wavelength">
+		<td>Light 2 position:</td>
+		<td><input type="text" name="position.x2"></td>
+		<td><input type="text" name="position.y2"></td>
 	</div>
   	<input type="submit" value="Submit">
 </form>
+<!--{{ labelplus }}-->
+{% if 1 %}
+<img src='../site_media/test.jpg' width='400' height='250' />
+{% endif %}

@@ -7,5 +7,6 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     url(r'^interference/', include('interference.urls')),
     url(r'^lens/', include('lens.urls')),
+    url(r'^query/', 'website.views.query'),
     url(r'^$', 'website.views.template'),
 )

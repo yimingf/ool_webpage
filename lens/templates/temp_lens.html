@@ -1,5 +1,6 @@
 <h1>{{ label }}</h1>
-<form action="/lens/query/" method="get">
+<form action="/lens/query/" method="POST">
+	{% csrf_token %}
 	<div class="select_format">
         <td>Light position</td>
         <td><input type="text" name="position.x">		</td>
@@ -8,5 +9,14 @@
 		<td>Lens position:<input type="text" name="position"></td>
 		<td>Focal length:<input type="text" name="focal"></td>
 	</div>
+	<!-- The following code kinda disobeyed DRY principle of python -->
+	<div>
+		<td>Lens position:<input type="text" name="position"></td>
+		<td>Focal length:<input type="text" name="focal"></td>
+	</div>
   	<input type="submit" value="Submit">
 </form>
+<!--{{ labelplus }}-->
+{% if 1 %}
+<img src='../site_media/test.jpg' width='400' height='250' />
+{% endif %}

@@ -1,10 +1,7 @@
 from django.conf.urls import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
-
 urlpatterns = patterns('',
     url(r'^$', 'interference.views.template'),
-    url(r'^query/', 'interference.views.query')
+    url(r'^query/', 'interference.views.query'),
+    url(r'^site_media/(?P<path>.*)$','django.views.static.serve',{'document_root': '/home/ccpizzadaisuki/website/interference/'}),
 )

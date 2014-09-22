@@ -1,15 +1,16 @@
-from django.template import loader, Context
+from django.template import loader, RequestContext
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.core.context_processors import csrf
 
 def template(request):
-	temp = loader.get_template("temp_intf.html")
-	cont = Context ({'label': 'interference'})
-    #context['label'] = 'Hello World!'
-	return HttpResponse(temp.render(cont))
+	ctx = {}
+	ctx['label'] = 'Interfernce:'
+	ctx['labelplus'] = 'Image'
+	return render(request, "temp_intf.html", ctx)
 
 def query(request):
-	temp = loader.get_template("temp_intf.html")
-	cont = Context ({'label': 'Result:'})
-	# Data manipulation codes goes here.
-	return HttpResponse(temp.render(cont))
+	ctx = {}
+	ctx.update(csrf(request))
+	ctx['label'] = 'Result:'
+	return render(request, "temp_intf.html", ctx)
