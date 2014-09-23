@@ -1,23 +1,32 @@
+{% extends "base_css.html" %}
+{% block content %}
 <h1>{{ label }}</h1>
+<p>{{ labelplus }}</p>
 <form action="/interference/query/" method="POST">
 	{% csrf_token %}
-	<div class="select_format">
+	<div>
         <td>Optical screenposition</td>
-        <td><input type="text" name="position.screen">		</td>
+        <td><input type="text" name="screen.a"></td>
+        <td><input type="text" name="screen.b"></td>
+        <td><input type="text" name="screen.c"></td>
     </div>
 	<div>
 		<td>Light 1 position:</td>
 		<td><input type="text" name="position.x1"></td>
 		<td><input type="text" name="position.y1"></td>
+		<td>Wavelength:</td>
+		<td><input type="text" name="w_length.1"></td>
 	</div>
 	<div>
 		<td>Light 2 position:</td>
 		<td><input type="text" name="position.x2"></td>
 		<td><input type="text" name="position.y2"></td>
+		<td>Wavelength:</td>
+		<td><input type="text" name="w_length.2"></td>
 	</div>
-  	<input type="submit" value="Submit">
+  	<input type="submit" name="submit" value="Submit">
+  	<input type="submit" name="back" value="Return">
 </form>
-<!--{{ labelplus }}-->
-{% if 1 %}
-<img src='../site_media/test.jpg' width='400' height='250' />
-{% endif %}
+<img src='../site_media/inf.jpg' width='400' height='250' />
+<img src='../site_media/pos.jpg' width='400' height='250' />
+{% endblock %}

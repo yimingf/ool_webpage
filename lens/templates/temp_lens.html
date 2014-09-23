@@ -1,22 +1,28 @@
+{% extends "base_css.html" %}
+{% block content %}
 <h1>{{ label }}</h1>
+<p>{{ labelplus }}</p>
 <form action="/lens/query/" method="POST">
 	{% csrf_token %}
 	<div class="select_format">
-        <td>Light position</td>
-        <td><input type="text" name="position.x">		</td>
+        <td>Light source position:</td>
+        <td><input type="text" name="light.x">		</td>
+        <td><input type="text" name="light.y">		</td>
     </div>
 	<div>
-		<td>Lens position:<input type="text" name="position"></td>
-		<td>Focal length:<input type="text" name="focal"></td>
+		<td>Len 1 position:<input type="text" name="position.foo"></td>
+		<td>Focal length:<input type="text" name="focal.foo"></td>
 	</div>
 	<!-- The following code kinda disobeyed DRY principle of python -->
 	<div>
-		<td>Lens position:<input type="text" name="position"></td>
-		<td>Focal length:<input type="text" name="focal"></td>
+		<td>Len 2 position:<input type="text" name="position.bar"></td>
+		<td>Focal length:<input type="text" name="focal.bar"></td>
 	</div>
-  	<input type="submit" value="Submit">
+  	<input type="submit" name="submit" value="Submit">
+  	<input type="submit" name="back" value="Return">
 </form>
 <!--{{ labelplus }}-->
 {% if 1 %}
-<img src='../site_media/test.jpg' width='400' height='250' />
+<img src='../site_media/lens.jpg' width='400' height='250' />
 {% endif %}
+{% endblock %}
