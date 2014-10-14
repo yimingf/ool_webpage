@@ -11,6 +11,10 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+CACHE_BACKEND = {
+    'file:///var/tmp/cache?timeout=0'
+}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.

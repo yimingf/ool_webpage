@@ -10,12 +10,8 @@ def SpIn(source1, source2, screen):
     distance = np.sqrt(np.square(source1.x - source2.x) + np.square(source1.y - source2.y))
     k = 2*pi/Light_source.w_length
     if (screen.a == 0 and screen.b == 0):
-        a = np.arange(Light_source.minx - 5*distance,
-                      Light_source.maxx + 5*distance,
-                      (Light_source.maxx - Light_source.minx + 5 *distance)/100.0)
-        b = np.arange(Light_source.miny - 5*distance,
-                      Light_source.maxy + 5*distance,
-                      (Light_source.maxy - Light_source.miny + 5 *distance)/100.0)
+        a = np.arange(Light_source.minx - 5*distance, Light_source.maxx + 5*distance, (Light_source.maxx - Light_source.minx + 5 *distance)/100.0)
+        b = np.arange(Light_source.miny - 5*distance, Light_source.maxy + 5*distance, (Light_source.maxy - Light_source.miny + 5 *distance)/100.0)
         x, y = np.meshgrid(a, b)
         r = np.sqrt((np.square(x-source1.x)+np.square(y-source1.y)))
         U1=np.expm1(1j*k*r)+1;
@@ -26,13 +22,13 @@ def SpIn(source1, source2, screen):
         plt.pcolor(x,y,I);
         plt.gray()
         plt.axis([a[0],a[-1],b[0],b[-1]])
-        plt.savefig('./inf.jpg')
+        plt.savefig('./interference/static/interference/inf.jpg')
         plt.close()
         plt.plot([source1.x,source2.x],[source1.y,source2.y],'o')
         plt.text(source1.x-1,source1.y-1,'S1')
         plt.text(source2.x-1,source2.y-1,'S2')
         plt.axis([a[0],a[-1],b[0],b[-1]])
-        plt.savefig('./pos.jpg')
+        plt.savefig('./interference/static/interference/pos.jpg')
     else:
         dis1 = np.abs(screen.a*source1.x+screen.b*source1.y+screen.c)/np.sqrt(np.square(screen.a)+np.square(screen.b))
         dis2 = np.abs(screen.a*source2.x+screen.b*source2.y+screen.c)/np.sqrt(np.square(screen.a)+np.square(screen.b))
@@ -58,7 +54,7 @@ def SpIn(source1, source2, screen):
                 plt.pcolor(x,y,I);
                 plt.gray()
                 plt.axis([a[0],a[-1],a[0],a[-1]])
-                plt.savefig('./inf.jpg')
+                plt.savefig('./interference/static/interference/inf.jpg')
                 plt.close()
                 plt.hold(True)
                 x = [-100,100]
@@ -73,7 +69,7 @@ def SpIn(source1, source2, screen):
                 plt.text(source2.x-1,source2.y-1,'S2')
                 
                 
-                plt.savefig('./pos.jpg')
+                plt.savefig('./interference/static/interference/pos.jpg')
             else:
                 if(screen.a == 0):
                     r=np.sqrt(np.square(source1.x-(interx+x))+np.square(source1.y-intery)+y*y)
@@ -85,7 +81,7 @@ def SpIn(source1, source2, screen):
                     plt.pcolor(x,y,I);
                     plt.gray()
                     plt.axis([a[0],a[-1],a[0],a[-1]])
-                    plt.savefig('./inf.jpg')
+                    plt.savefig('./interference/static/interference/inf.jpg')
                     plt.close()
                     plt.plot([source1.x,source2.x],[source1.y,source2.y],'o')
                     plt.hold()
@@ -98,7 +94,7 @@ def SpIn(source1, source2, screen):
                                   max(Light_source.maxx,interx)+5*distance,\
                                   min(Light_source.miny,intery)-5*distance,\
                                   max(Light_source.maxx,intery)-5*distance])
-                    plt.savefig('./pos.jpg')
+                    plt.savefig('./interference/static/interference/pos.jpg')
                 else:
                     if(screen.b == 0):
                         r=np.sqrt(np.square(source1.y-(intery+x))+np.square(source1.x-interx)+y*y)
@@ -110,7 +106,7 @@ def SpIn(source1, source2, screen):
                         plt.pcolor(x,y,I);
                         plt.gray()
                         plt.axis([a[0],a[-1],a[0],a[-1]])
-                        plt.savefig('./inf.jpg')
+                        plt.savefig('./interference/static/interference/inf.jpg')
                         plt.close()
                         plt.plot([source1.x,source2.x],[source1.y,source2.y],'o')
                         plt.hold()
@@ -120,10 +116,10 @@ def SpIn(source1, source2, screen):
                         y = [-100,100]
                         plt.plot(x,y)
                         plt.axis([min(Light_source.minx,interx)-5*distance,\
-                                      max(Light_source.maxx,interx)+5*distance,\
-                                      min(Light_source.miny,intery)-5*distance,\
-                                      max(Light_source.maxx,intery)-5*distance])
-                        plt.savefig('./pos.jpg')
+                            max(Light_source.maxx,interx)+5*distance,\
+                            min(Light_source.miny,intery)-5*distance,\
+                            max(Light_source.maxx,intery)-5*distance])
+    plt.savefig('./interference/static/interference/pos.jpg')
 #source1 = Light_source(-1,1,0.5)
 #source2 = Light_source(1,1,0.5)
 #screen = Light_screen(1,0,10)

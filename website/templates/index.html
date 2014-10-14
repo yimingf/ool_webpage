@@ -1,0 +1,105 @@
+{% extends "base_css.html" %}
+{% block content %}
+<!DOCTYPE html>
+<head>
+<title>Home</title>
+<meta charset="utf-8">
+<meta name = "format-detection" content = "telephone=no" />
+<!--<![endif]-->
+<script>
+ $(window).load(function(){
+  $().UItoTop({ easingType: 'easeOutQuart' });
+  $('#camera_wrap').camera({
+    loader: false,
+    pagination: false ,
+    minHeight: '400',
+    thumbnails: true,
+    height: '46.32478632478632%',
+    caption: false,
+    navigation: false,
+    fx: 'mosaic'
+  });
+  $('.gallery .gall_item').touchTouch();
+ });
+</script>
+<!--[if lt IE 8]>
+ <div style=' clear: both; text-align:center; position: relative;'>
+   <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+     <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+   </a>
+</div>
+<![endif]-->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<link rel="stylesheet" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body class="page1" id="top">
+<!--==============================
+              header
+=================================-->
+<div class="main">
+<header>
+  <div class="container_12">
+    <div class="grid_12">
+      <h1 class="logo">
+        <a href="/">光学实验<span>Online Optics Laboratory</span>
+        </a>
+      </h1>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <section id="stuck_container">
+  <!--==============================
+              Stuck menu
+  =================================-->
+    <div class="container_12">
+        <div class="grid_12">
+          <div class="navigation ">
+            <nav>
+              <ul class="sf-menu">
+               <li class="current"><a href="index.html">Home</a></li>
+               <li><a href="/interference/">Interference</a></li>
+               <li><a href="/lens/">Lens Imaging</a></li>
+               <li><a href="contacts.html">About Us</a></li>
+             </ul>
+            </nav>
+            <div class="clear"></div>
+          </div>
+         <div class="clear"></div>
+     </div>
+     <div class="clear"></div>
+    </div>
+  </section>
+</header>
+<section class="slider_wrapper">
+  <div class="container_12">
+    <div class="grid_12">
+      <div id="camera_wrap" class="">
+        <div data-src="images/slide-new-1.jpg" data-thumb="images/thumb-1.jpg"></div>
+        <div data-src="images/slide-new-2.jpg" data-thumb="images/thumb-2.jpg"></div>
+        <!--div data-src="images/slide-3.jpg" data-thumb="images/thumb-1.jpg"></div-->
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</section>
+<!--=====================
+          Content
+======================-->
+
+<!--==============================
+              footer
+=================================-->
+</div>
+<footer id="footer">
+  <div class="container_12">
+    <div class="grid_12">
+      <div class="sub-copy">Online Optics Laboratory &copy; <span id="copyright-year"></span> | <a href="#">by Lifan Gong, Zhengxu Chen and Yiming Fan.</a> <br> Website designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>, modified by Yiming Fan.</div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</footer>
+<a href="#" id="toTop" class="fa fa-angle-up"></a>
+</body>
+{% endblock %}

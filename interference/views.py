@@ -1,3 +1,4 @@
+import os
 from django.template import loader, RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -7,14 +8,16 @@ from Module_In import Light_source, Light_screen
 
 def template(request):
 	ctx = {}
-	ctx['label'] = 'Interference'
-	ctx['labelplus'] = 'Please enter parameters.'
-	return render(request, "temp_intf.html", ctx)
+	#ctx['label'] = 'Interference'
+	#ctx['labelplus'] = 'Please enter parameters.'
+	return render(request, "interference.html", ctx)
 
 def query(request):
+	if os.path.isfile('/static/interference/pos.jpg'):
+		os.remove('/static/interference/pos.jpg')
 	ctx = {}
 	ctx.update(csrf(request))
-	ctx['label'] = 'Result:'
+	#ctx['label'] = 'Result:'
 	if request.POST.has_key('back'):
 		return HttpResponseRedirect('http://127.0.0.1:8000/')
 	if request.POST:
@@ -34,4 +37,4 @@ def query(request):
 			float(request.POST['w_length.2']),
 			)
 		SpIn(sourceFoo, sourceBar, screen)
-	return render(request, "temp_intf.html", ctx)
+	return render(request, "interference.html", ctx)

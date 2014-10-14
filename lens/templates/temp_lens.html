@@ -21,8 +21,7 @@
   	<input type="submit" name="submit" value="Submit">
   	<input type="submit" name="back" value="Return">
 </form>
-<!--{{ labelplus }}-->
-{% if 1 %}
-<img src='../site_media/lens.jpg' width='400' height='250' />
-{% endif %}
+{% load staticfiles %}
+<img src="{% static 'lens/pos.jpg' %}" width='400' height='250'/>
+<!--<img src='./static/lens/pos.jpg' width='400' height='250' />-->
 {% endblock %}
