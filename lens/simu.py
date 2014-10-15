@@ -175,7 +175,12 @@ def ImagePos(source, lens1, lens2):
                          [lens2.pos,lens2.pos-img_dis2],[0,0],'b',
                          [lens2.pos,lens2.pos-img_dis2],[1,2],'b',
                          [lens2.pos,lens2.pos-img_dis2],[2,4],'b')
-    plt.savefig('./lens/static/lens/pos.jpg')
+        x_axis = plt.get(plt.gca(),"xlim")
+        plt.savefig("lens.jpg",)
+        temp = Image.open("lens.jpg")
+        draw_lens_on(temp,lens1,x_axis)
+        draw_lens_on(temp,lens2,x_axis)
+        temp.save('./lens/static/lens/pos.jpg')
     #plt.savefig('./pos.jpg')
 
 #source = Light_source(0,1)
